@@ -1,7 +1,8 @@
 import React from "react";
 import NotesAppHeader from "./NotesAppHeader";
-import NotesAppBody from "./NotesAppBody";
+import NotesList from "./NotesList";
 import { getInitialData } from "../utils/index";
+import NotesInput from "./NotesInput";
 
 class NotesApp extends React.Component {
   constructor(props) {
@@ -20,13 +21,16 @@ class NotesApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <NotesAppHeader />
-        <NotesAppBody
-          notes={this.state.notes}
-          onDeleteHandler={this.onDeleteHandler}
-        />
-      </div>
+        <div className="note-app__body">
+          <NotesInput />
+          <NotesList
+            notes={this.state.notes}
+            onDeleteHandler={this.onDeleteHandler}
+          />
+        </div>
+      </>
     );
   }
 }
