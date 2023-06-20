@@ -1,21 +1,20 @@
 import React from "react";
 import NotesItem from "./NotesItem";
 
-function NotesList({ notes, onDelete }) {
+function NotesList({ notes, onDelete, archived, onArchive }) {
   return (
-    <>
-      <h2>Catatan Aktif</h2>
-      <div className="notes-list">
-        {notes.map((notes) => (
-          <NotesItem
-            key={notes.id}
-            id={notes.id}
-            onDelete={onDelete}
-            {...notes}
-          />
-        ))}
-      </div>
-    </>
+    <div className="notes-list">
+      {notes.map((notes) => (
+        <NotesItem
+          key={notes.id}
+          id={notes.id}
+          onDelete={onDelete}
+          onArchive={onArchive}
+          archived={archived}
+          {...notes}
+        />
+      ))}
+    </div>
   );
 }
 
