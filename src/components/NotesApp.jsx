@@ -38,6 +38,7 @@ class NotesApp extends React.Component {
             title,
             createdAt: new Date().toISOString(),
             body,
+            archived: false,
           },
         ],
       };
